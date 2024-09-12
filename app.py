@@ -306,11 +306,11 @@ def query(question, chat_history):
 
 def show_ui():
     """
-    Sets up the Streamlit UI for the Analytx4T Personal Chatbot.
+    Sets up the Streamlit UI for the Travvise Travel Solutions Chatbot.
     """
-    st.title("Analytx4T Personal Chatbot")
-    st.image("https://www.travvise.com/images/logo.svg", width=300)  # Analytx4T logo
-    st.write("Hello! I am your Analytx4T Personal Chatbot. How can I assist you today?")
+    st.title("Travvise Travel Solutions Chatbot")
+    st.image("https://www.travvise.com/images/logo.svg", width=300)  # Travvise logo
+    st.write("Hello! I am your Travvise Virtual Assistant. How can I assist you with your travel technology needs today?")
 
     # Initialize session state for chat history and messages
     if 'messages' not in st.session_state:
@@ -345,12 +345,12 @@ def show_ui():
         except Exception as e:
             st.error(f"An error occurred while processing the query: {str(e)}")
 
-    # Add a "Restart Chat" button below the output area and above the input area
-    if st.button("Restart Chat"):
-        # Reset the chat state
-        st.session_state.messages = []
-        st.session_state.chat_history = []
-         
+    # Show the button only if there is at least one message in the chat history
+    if st.session_state.messages:
+        if st.button("Start New Conversation"):
+            # Reset the chat state
+            st.session_state.messages = []
+            st.session_state.chat_history = []
 
 
 
